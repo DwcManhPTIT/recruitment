@@ -1,0 +1,38 @@
+.layout-default {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+  &__header {
+    background: #f0f0f0;
+    padding: 20px 0;
+  }
+
+  &__wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    font-size: 30px;
+    font-weight: 900;
+
+    a {
+      color: var(--color-main);
+    }
+  }
+
+  &__main {
+    flex: 1;
+    overflow-y: auto;
+    margin: 28px 0;
+  }
+
+  &__footer {
+    padding: 18px 0;
+    text-align: center;
+    background: #333;
+    color: #fff;
+  }
+}
