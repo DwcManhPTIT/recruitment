@@ -9,6 +9,10 @@ function CVStatistic() {
   const idCompany = getCookie("id");
   const [data, setData] = useState();
 
+  const CV_TOTAL = "Tổng CV";
+  const READ_CV = "CV đã đọc";
+  const UNREAD_CV = "CV chưa đọc";
+
   useEffect(() => {
     const fetchApi = async () => {
       const response = await getListCV(idCompany);
@@ -24,10 +28,11 @@ function CVStatistic() {
         });
 
         let dataOject = {
-          Tổng_CV: obj.total,
-          CV_đã_đọc: obj.statusTrue,
-          CV_chưa_đọc: obj.statusFalse
+          [CV_TOTAL]: obj.total,
+          [READ_CV]: obj.statusTrue,
+          [UNREAD_CV]: obj.statusFalse
         };
+
         setData(dataOject);
         console.log(data);
 
@@ -47,6 +52,7 @@ function CVStatistic() {
   let dataArray = [];
 
   for (let key in data) {
+    console.log(key)
     dataArray.push({
       type: key,
       value: data[key]
@@ -70,13 +76,13 @@ function CVStatistic() {
         <Card title="Thống kê CV" className="mb-20" size="large">
           <Pie {...config} />
           <div>
-            Số lượng CV: <strong>{data.Tổng_CV}</strong>
+            Số lượng CV: <strong>{data[READ_CV]}</strong>
           </div>
           <div>
-            CV chưa đọc: <strong>{data.CV_đã_đọc}</strong>
+            CV đã đọc: <strong>{data[READ_CV]}</strong>
           </div>
           <div>
-            CV đã đọc: <strong>{data.CV_chưa_đọc}</strong>
+            CV chưa đọc: <strong>{data[UNREAD_CV]}</strong>
           </div>
         </Card >
       )

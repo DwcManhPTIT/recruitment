@@ -10,6 +10,11 @@ function JobStatistic() {
   const idCompany = getCookie("id");
   const [data, setData] = useState();
 
+  const JOB_TOTAL = 'Tổng Job';
+  const JOB_ACTIVE = 'Job bật';
+  const JOB_INACTIVE = 'Job tắt';
+
+
   useEffect(() => {
     const fetchApi = async () => {
       const response = await getListJob(idCompany);
@@ -23,12 +28,12 @@ function JobStatistic() {
         response.forEach((item) => {
           item.status ? obj.statusTrue++ : obj.statusFalse++;
         });
-        let dataOject = {
-          Tổng_Job: obj.total,
-          Job_bật: obj.statusTrue,
-          Job_tắt: obj.statusFalse
+        let dataObject = {
+          [JOB_TOTAL]: obj.total,
+          [JOB_ACTIVE]: obj.statusTrue,
+          [JOB_INACTIVE]: obj.statusFalse
         };
-        setData(dataOject);
+        setData(dataObject);
       }
     };
     fetchApi();
@@ -59,13 +64,13 @@ function JobStatistic() {
         <Card title="Thống kê Job" className="mb-20" size="big">
           <Pie {...config} />
           <div>
-            Số lượng job: <strong>{data.Tổng_Job}</strong>
+            Số lượng job: <strong>{data[JOB_TOTAL]}</strong>
           </div>
           <div>
-            Job đang bật: <strong>{data.Job_bật}</strong>
+            Job đang bật: <strong>{data[JOB_ACTIVE]}</strong>
           </div>
           <div>
-            Job đang tắt: <strong>{data.Job_tắt}</strong>
+            Job đang tắt: <strong>{data[JOB_INACTIVE]}</strong>
           </div>
         </Card>
       )}

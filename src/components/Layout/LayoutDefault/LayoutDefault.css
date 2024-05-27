@@ -1,0 +1,32 @@
+.layout-default {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+.layout-default__header {
+  background: #f0f0f0;
+  padding: 20px 0;
+}
+.layout-default__wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.layout-default__logo {
+  font-size: 30px;
+  font-weight: 900;
+}
+.layout-default__logo a {
+  color: var(--color-main);
+}
+.layout-default__main {
+  flex: 1;
+  overflow-y: auto;
+  margin: 28px 0;
+}
+.layout-default__footer {
+  padding: 18px 0;
+  text-align: center;
+  background: #333;
+  color: #fff;
+}/*# sourceMappingURL=LayoutDefault.css.map */
