@@ -64,7 +64,7 @@ function CompanyDetail() {
           <div className="mb-10">Danh sách các job:</div>
           <div className="mb-20">
             <Row gutter={[20, 20]}>
-              {jobs.map(item => (
+              {jobs.map((item) => (
                 <Col span={8} key={item.id}>
                   <JobItem item={item} />
                 </Col>

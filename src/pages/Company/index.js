@@ -4,6 +4,7 @@ import { Card, Col, Row } from "antd";
 import { Link } from "react-router-dom";
 
 function Company() {
+
   const [data, setData] = useState([]);
 
   useEffect(() => {

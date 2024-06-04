@@ -16,6 +16,7 @@ import { editCompany, getDetailCompany } from "../../services/companyService";
 const { TextArea } = Input;
 
 function InfoCompany() {
+
   const idCompany = getCookie("id");
   const [info, setInfo] = useState();
   const [isEdit, setIsEdit] = useState(false);
